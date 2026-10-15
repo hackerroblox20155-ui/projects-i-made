@@ -1,0 +1,47 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace for_test
+{
+    internal class Program
+    {
+        public static bool Success(int num)
+        {
+            int morepointsthan6 = 0;
+            int tenpoints = 0;
+            int sum = 0;
+            int[] points = new int[num];
+            Random hits = new Random();
+            for (int i = 0; i < num; i++)
+            {
+                points[i] = hits.Next(0, 11);
+                sum += points[i];
+                if (points[i] == 10)
+                {
+                    tenpoints++;
+                }
+                if (points[i] >= 6)
+                {
+                    morepointsthan6++;
+                }
+            }
+            if (morepointsthan6 >= num && tenpoints >= 1 && sum / num >= 5)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Success(3));
+        }
+    }
+}
